@@ -11,30 +11,35 @@ namespace Treinamento.DataAccess
 {
     public class SqlOrder : IOrder
     {
-        public String connectionString
+        public String GetConnectionString
         {
             get
             {
                 return System.Configuration.ConfigurationManager.ConnectionStrings["MY_DB"].ConnectionString;
             }
         }
+
         void IOrder.DeleteOrder(uint Id)
         {
             var stringBuilder = new StringBuilder();
 
             stringBuilder.AppendLine("DELETE ORDERS WHERE ORD_ID = @ordId");
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(stringBuilder.ToString(), connection))
+            using (SqlConnection connection = new SqlConnection(GetConnectionString))
             {
-                var parameter = new SqlParameter()
+                using (SqlCommand command = new SqlCommand(stringBuilder.ToString(), connection))
                 {
-                    ParameterName = "@ordId",
-                    SqlDbType = System.Data.SqlDbType.Int,
-                    Value = Id
-                };
+                    var parameter = new SqlParameter()
+                    {
+                        ParameterName = "@ordId",
+                        SqlDbType = System.Data.SqlDbType.Int,
+                        Value = Id
+                    };
+                    
+                    command.Parameters.Add(parameter);
 
-                command.Parameters.Add(parameter);
+                    command.ExecuteNonQuery();
+                }
             }
         }
 
