@@ -10,6 +10,11 @@ namespace Treinamento.Business
 {
     public class Order : IOrder
     {
+        public IList<Entities.Order> ListOrder()
+        {
+            throw new NotImplementedException();
+        }
+
         void IOrder.DeleteOrder(uint Id)
         {
             throw new NotImplementedException();
