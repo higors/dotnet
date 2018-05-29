@@ -57,6 +57,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -79,6 +82,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Treinamento.Business\Treinamento.Business.csproj">
+      <Project>{c468702c-09de-46b8-99ba-c646fdcb7ac8}</Project>
+      <Name>Treinamento.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Treinamento.DataAccess\Treinamento.DataAccess.csproj">
+      <Project>{ca7efb65-6b29-4bb7-a595-9110627016b1}</Project>
+      <Name>Treinamento.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Treinamento.Entities\Treinamento.Entities.csproj">
+      <Project>{44094bd1-f8bd-43e8-a039-ebfb9a7d7354}</Project>
+      <Name>Treinamento.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Treinamento.Interfaces\Treinamento.Interfaces.csproj">
+      <Project>{c89ba274-cd3e-44f3-bdcf-2a2e08087806}</Project>
+      <Name>Treinamento.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

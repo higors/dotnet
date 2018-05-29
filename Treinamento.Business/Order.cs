@@ -10,24 +10,30 @@ namespace Treinamento.Business
 {
     public class Order : IOrder
     {
+        private Treinamento.Interfaces.IOrder order = DataAccess.Factory.Order.NewOrder();
         public IList<Entities.Order> ListOrder()
         {
-            throw new NotImplementedException();
+            return order.ListOrder();
         }
 
         void IOrder.DeleteOrder(uint Id)
         {
-            throw new NotImplementedException();
+            order.DeleteOrder(Id);
+        }
+
+        IList<OrderType> IOrder.ListOrderTypes()
+        {
+            return order.ListOrderTypes();
         }
 
         void IOrder.NewOrder(Entities.Order order)
         {
-            throw new NotImplementedException();
+            this.order.NewOrder(order);
         }
 
         void IOrder.UpdateOrder(Entities.Order order)
         {
-            throw new NotImplementedException();
+            this.order.UpdateOrder(order);
         }
     }
 }

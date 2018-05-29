@@ -40,10 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factory\Order.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Treinamento.DataAccess\Treinamento.DataAccess.csproj">
+      <Project>{ca7efb65-6b29-4bb7-a595-9110627016b1}</Project>
+      <Name>Treinamento.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Treinamento.Entities\Treinamento.Entities.csproj">
       <Project>{44094bd1-f8bd-43e8-a039-ebfb9a7d7354}</Project>
       <Name>Treinamento.Entities</Name>
