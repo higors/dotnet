@@ -57,7 +57,7 @@ namespace Treinamento.DataAccess
             {
                 connection.Open();
 
-                var lista = command.ExecuteReader().OfType<Order>().ToList;
+                var lista = command.ExecuteReader().OfType<Order>().ToList();
             }
 
         }
