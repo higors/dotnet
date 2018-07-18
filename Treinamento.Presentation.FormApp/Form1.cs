@@ -16,5 +16,10 @@ namespace Treinamento.Presentation.FormApp
         {
             InitializeComponent();
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+        }
     }
 }

@@ -28,13 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Button btnIncluir;
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            btnIncluir = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // btnIncluir
+            // 
+            btnIncluir.BackColor = System.Drawing.SystemColors.Control;
+            btnIncluir.Location = new System.Drawing.Point(12, 309);
+            btnIncluir.Name = "btnIncluir";
+            btnIncluir.Size = new System.Drawing.Size(113, 30);
+            btnIncluir.TabIndex = 1;
+            btnIncluir.Text = "Incluir";
+            btnIncluir.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(753, 280);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(181, 327);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(130, 20);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "Insira um valor:";
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(178, 311);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Código:";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(btnIncluir);
+            this.Controls.Add(this.dataGridView1);
+            this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
