@@ -12,5 +12,8 @@ namespace Treinamento.Entities
         public String Description { get; set; }
         public String OrderNumber { get; set; }
         public DateTime OrderDate { get; set; }
+        public int IdItemOrder { get; set; }
+
+        public virtual Item Item { get; set; }
     }
 }

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Treinamento.Entities
 {
-    public class OrderType
+    public class Item
     {
         public UInt32 Id { get; set; }
         public String Description { get; set; }
+        public decimal Cost { get; set; }
     }
 }

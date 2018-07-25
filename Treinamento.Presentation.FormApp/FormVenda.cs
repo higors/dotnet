@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Treinamento.Presentation.FormApp
 {
-    public partial class Form1 : Form
+    public partial class FormVenda : System.Windows.Forms.Form
     {
-        public Form1()
+        public FormVenda()
         {
             InitializeComponent();
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-           
+            Close();
         }
     }
 }
