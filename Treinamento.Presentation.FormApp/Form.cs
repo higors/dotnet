@@ -12,16 +12,30 @@ namespace Treinamento.Presentation.FormApp
 {
     public partial class Form : System.Windows.Forms.Form
     {
+        private enum Pedido
+        {
+            Código,
+            Item,
+            Quantidade,
+            Valor,
+            Data
+        };
+
+        private FormVenda venda = new FormVenda();
+
         public Form()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            FormVenda Venda = new FormVenda();
+            venda.Show();
+        }
 
-            Venda.Show();
+        private void dgvPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
