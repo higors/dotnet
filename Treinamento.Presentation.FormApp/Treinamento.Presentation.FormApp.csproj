@@ -101,6 +101,10 @@
       <Project>{44094bd1-f8bd-43e8-a039-ebfb9a7d7354}</Project>
       <Name>Treinamento.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Treinamento.Interfaces\Treinamento.Interfaces.csproj">
+      <Project>{c89ba274-cd3e-44f3-bdcf-2a2e08087806}</Project>
+      <Name>Treinamento.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

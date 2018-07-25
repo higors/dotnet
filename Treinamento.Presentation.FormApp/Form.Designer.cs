@@ -30,11 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPedidos = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxPedido = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnExcluirPedido = new System.Windows.Forms.Button();
@@ -76,12 +71,6 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.ItemDescription,
-            this.OrderQuantity,
-            this.OrderCost,
-            this.OrderDate});
             this.dgvPedidos.EnableHeadersVisualStyles = false;
             this.dgvPedidos.GridColor = System.Drawing.SystemColors.ControlLight;
             this.dgvPedidos.Location = new System.Drawing.Point(12, 12);
@@ -91,42 +80,7 @@
             this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedidos.Size = new System.Drawing.Size(487, 290);
             this.dgvPedidos.TabIndex = 0;
-            this.dgvPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidos_CellContentClick);
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Código";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 50;
-            // 
-            // ItemDescription
-            // 
-            this.ItemDescription.HeaderText = "Item Description";
-            this.ItemDescription.Name = "ItemDescription";
-            this.ItemDescription.ReadOnly = true;
-            this.ItemDescription.Width = 190;
-            // 
-            // OrderQuantity
-            // 
-            this.OrderQuantity.HeaderText = "Quantidade";
-            this.OrderQuantity.Name = "OrderQuantity";
-            this.OrderQuantity.ReadOnly = true;
-            this.OrderQuantity.Width = 70;
-            // 
-            // OrderCost
-            // 
-            this.OrderCost.HeaderText = "Valor";
-            this.OrderCost.Name = "OrderCost";
-            this.OrderCost.ReadOnly = true;
-            this.OrderCost.Width = 50;
-            // 
-            // OrderDate
-            // 
-            this.OrderDate.HeaderText = "Data Venda";
-            this.OrderDate.Name = "OrderDate";
-            this.OrderDate.ReadOnly = true;
-            this.OrderDate.Width = 80;
+            this.dgvPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidos_CellContentClick);
             // 
             // gbxPedido
             // 
@@ -308,7 +262,7 @@
             this.lblValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorTotal.Location = new System.Drawing.Point(69, 16);
             this.lblValorTotal.Name = "lblValorTotal";
-            this.lblValorTotal.Size = new System.Drawing.Size(144, 16);
+            this.lblValorTotal.Size = new System.Drawing.Size(158, 16);
             this.lblValorTotal.TabIndex = 0;
             this.lblValorTotal.Text = "VALOR TOTAL (R$)";
             // 
@@ -346,11 +300,6 @@
         private System.Windows.Forms.Label lblData;
         private System.Windows.Forms.Label lblPedido;
         private System.Windows.Forms.MaskedTextBox mtbValorTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderDate;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnExcluirPedido;
         private System.Windows.Forms.Button btnNovaVenda;

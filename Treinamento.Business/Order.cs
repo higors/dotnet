@@ -1,31 +1,33 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Treinamento.Entities;
 using Treinamento.Interfaces;
 
 namespace Treinamento.Business
 {
     public class Order : IOrder
     {
-        public IList<Entities.Order> ListOrder()
+        private IOrder order = DataAccess.Factory.OrderFactory.NewOrder;
+        public void DeleteOrder(uint Id)
         {
             throw new NotImplementedException();
         }
 
-        void IOrder.DeleteOrder(uint Id)
+        public DataSet ListOrder()
+        {
+            return order.ListOrder();
+        }
+
+        public void NewOrder(Entities.Order order)
         {
             throw new NotImplementedException();
         }
 
-        void IOrder.NewOrder(Entities.Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IOrder.UpdateOrder(Entities.Order order)
+        public void UpdateOrder(Entities.Order order)
         {
             throw new NotImplementedException();
         }

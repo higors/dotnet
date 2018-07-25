@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -35,17 +36,38 @@ namespace Treinamento.DataAccess
                         SqlDbType = System.Data.SqlDbType.Int,
                         Value = Id
                     };
-                    
-                    command.Parameters.Add(parameter);
 
+                    command.Parameters.Add(parameter);
+                    
                     command.ExecuteNonQuery();
                 }
             }
         }
 
-        IList<Order> IOrder.ListOrder()
+        DataSet IOrder.ListOrder()
         {
-            throw new NotImplementedException();
+            var stringBuilder = new StringBuilder();
+            DataSet dataSet = new DataSet();
+
+            stringBuilder.AppendLine("SELECT O.ORD_ID Código,");
+            stringBuilder.AppendLine("I.ITM_DESCRIPTION Item,");
+            stringBuilder.AppendLine("O.ORD_QUANTITY Quantidade,");
+            stringBuilder.AppendLine("I.ITM_COST Valor,");
+            stringBuilder.AppendLine("O.ORD_SALESMAN Vendedor,");
+            stringBuilder.AppendLine("O.ORD_DATE Data");
+            stringBuilder.AppendLine("FROM ORDERS O");
+            stringBuilder.AppendLine("LEFT JOIN ITEMS I ON O.ORD_ITM_ID = I.ITM_ID");
+
+            using (SqlConnection connection = new SqlConnection(GetConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(stringBuilder.ToString(), connection))
+                {
+                    var dataAdapter = new SqlDataAdapter(command);
+                    dataAdapter.Fill(dataSet);
+                }
+            }
+            return dataSet;
         }
 
         void IOrder.NewOrder(Order order)
