@@ -15,14 +15,6 @@ namespace Treinamento.Presentation.FormApp
     public partial class Form : System.Windows.Forms.Form
     {
         private IOrder order = Business.Factory.OrderFactory.NewOrder;
-        private enum Pedido
-        {
-            Código,
-            Item,
-            Quantidade,
-            Valor,
-            Data
-        };
 
         private FormVenda venda = new FormVenda();
 
@@ -30,9 +22,7 @@ namespace Treinamento.Presentation.FormApp
         {
             InitializeComponent();
 
-            dgvPedidos.AutoGenerateColumns = true;
             dgvPedidos.DataSource = order.ListOrder();
-            dgvPedidos.DataMember = "Table";
         }
 
         private void Button1_Click(object sender, EventArgs e)

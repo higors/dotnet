@@ -12,16 +12,16 @@ namespace Treinamento.Entities
     public class Order
     {
         [Column("ORD_ID")]
-        public UInt32 Id { get; set; }
-        [Column("ORD_DESCRIPTION")]
-        public String Description { get; set; }
+        public int? Id { get; set; }
+        [Column("ORD_SALESMAN")]
+        public String Salesman { get; set; }
         [Column("ORD_QUANTITY")]
         public String OrderQuantity { get; set; }
         [Column("ORD_DATE")]
         public DateTime OrderDate { get; set; }
 
         [Column("ORD_ITM_ID")]
-        public int IdItemOrder { get; set; }
-        public virtual Item Item { get; set; }
+        public int IdItem { get; set; }
+        public virtual Item ItemOrder { get; set; }
     }
 }

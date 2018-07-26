@@ -14,6 +14,6 @@ namespace Treinamento.Interfaces
         void NewOrder(Order order);
         void UpdateOrder(Order order);
         void DeleteOrder(UInt32 Id);
-        DataSet ListOrder();
+        IList<Order> ListOrder();
     }
 }

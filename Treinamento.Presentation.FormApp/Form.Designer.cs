@@ -262,7 +262,7 @@
             this.lblValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorTotal.Location = new System.Drawing.Point(69, 16);
             this.lblValorTotal.Name = "lblValorTotal";
-            this.lblValorTotal.Size = new System.Drawing.Size(158, 16);
+            this.lblValorTotal.Size = new System.Drawing.Size(144, 16);
             this.lblValorTotal.TabIndex = 0;
             this.lblValorTotal.Text = "VALOR TOTAL (R$)";
             // 

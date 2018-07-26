@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Treinamento.Entities
 {
+    [Table("ITEMS")]
     public class Item
     {
         [Column("ITM_ID")]
-        public UInt32 Id { get; set; }
+        public int? Id { get; set; }
         [Column("ITM_DESCRIPTION")]
         public String Description { get; set; }
         [Column("ITM_COST")]

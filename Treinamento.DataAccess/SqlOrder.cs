@@ -1,4 +1,5 @@
 ﻿using System;
+using Dapper;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -38,36 +39,33 @@ namespace Treinamento.DataAccess
                     };
 
                     command.Parameters.Add(parameter);
-                    
+
                     command.ExecuteNonQuery();
                 }
             }
         }
 
-        DataSet IOrder.ListOrder()
+        IList<Order> IOrder.ListOrder()
         {
             var stringBuilder = new StringBuilder();
-            DataSet dataSet = new DataSet();
+            List<object> listObject;
 
-            stringBuilder.AppendLine("SELECT O.ORD_ID Código,");
-            stringBuilder.AppendLine("I.ITM_DESCRIPTION Item,");
-            stringBuilder.AppendLine("O.ORD_QUANTITY Quantidade,");
-            stringBuilder.AppendLine("I.ITM_COST Valor,");
-            stringBuilder.AppendLine("O.ORD_SALESMAN Vendedor,");
-            stringBuilder.AppendLine("O.ORD_DATE Data");
+            stringBuilder.AppendLine("SELECT O.ORD_ID AS Pedido,");
+            stringBuilder.AppendLine("O.ORD_QUANTITY AS OrderQuantity,");
+            stringBuilder.AppendLine("O.ORD_SALESMAN AS Salesman,");
+            stringBuilder.AppendLine("O.ORD_DATE AS OrderDate,");
+            stringBuilder.AppendLine("I.ITM_ID AS ItemId,");
+            stringBuilder.AppendLine("I.ITM_DESCRIPTION AS Description,");
+            stringBuilder.AppendLine("I.ITM_COST AS Cost");
             stringBuilder.AppendLine("FROM ORDERS O");
             stringBuilder.AppendLine("LEFT JOIN ITEMS I ON O.ORD_ITM_ID = I.ITM_ID");
 
             using (SqlConnection connection = new SqlConnection(GetConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(stringBuilder.ToString(), connection))
-                {
-                    var dataAdapter = new SqlDataAdapter(command);
-                    dataAdapter.Fill(dataSet);
-                }
+                listObject = connection.Query(stringBuilder.ToString()).ToList();
             }
-            return dataSet;
+            return new List<Order>();
         }
 
         void IOrder.NewOrder(Order order)

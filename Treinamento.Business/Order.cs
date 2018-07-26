@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Treinamento.Interfaces;
+using Treinamento.Entities;
 
 namespace Treinamento.Business
 {
@@ -17,7 +18,7 @@ namespace Treinamento.Business
             throw new NotImplementedException();
         }
 
-        public DataSet ListOrder()
+        public IList<Entities.Order> ListOrder()
         {
             return order.ListOrder();
         }
