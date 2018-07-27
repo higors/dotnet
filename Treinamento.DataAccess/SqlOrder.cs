@@ -45,27 +45,34 @@ namespace Treinamento.DataAccess
             }
         }
 
-        IList<Order> IOrder.ListOrder()
+        IList<object> IOrder.ListOrder()
         {
             var stringBuilder = new StringBuilder();
             List<object> listObject;
 
-            stringBuilder.AppendLine("SELECT O.ORD_ID AS Pedido,");
-            stringBuilder.AppendLine("O.ORD_QUANTITY AS OrderQuantity,");
-            stringBuilder.AppendLine("O.ORD_SALESMAN AS Salesman,");
-            stringBuilder.AppendLine("O.ORD_DATE AS OrderDate,");
-            stringBuilder.AppendLine("I.ITM_ID AS ItemId,");
-            stringBuilder.AppendLine("I.ITM_DESCRIPTION AS Description,");
-            stringBuilder.AppendLine("I.ITM_COST AS Cost");
+            stringBuilder.AppendLine("SELECT *");
             stringBuilder.AppendLine("FROM ORDERS O");
-            stringBuilder.AppendLine("LEFT JOIN ITEMS I ON O.ORD_ITM_ID = I.ITM_ID");
+            stringBuilder.AppendLine("LEFT JOIN ITEMS I ON O.IDITEM = I.ITEMID");
 
             using (SqlConnection connection = new SqlConnection(GetConnectionString))
             {
                 connection.Open();
-                listObject = connection.Query(stringBuilder.ToString()).ToList();
+                listObject = connection.Query<Order, Item, object>(stringBuilder.ToString(), (ord, itm) =>
+                 {
+                     ord.ItemOrder = itm;
+
+                     return new
+                     {
+                         Venda = ord.OrderId,
+                         Item = ord.ItemOrder.Description,
+                         ValorUnitario = ord.ItemOrder.Cost,
+                         Quantidade = ord.OrderQuantity,
+                         Vendedor = ord.Salesman,
+                         Data = ord.OrderDate
+                     };
+                 }, splitOn: "ITEMID").ToList();
             }
-            return new List<Order>();
+            return listObject;
         }
 
         void IOrder.NewOrder(Order order)

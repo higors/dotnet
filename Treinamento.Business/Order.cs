@@ -18,7 +18,7 @@ namespace Treinamento.Business
             throw new NotImplementedException();
         }
 
-        public IList<Entities.Order> ListOrder()
+        public IList<object> ListOrder()
         {
             return order.ListOrder();
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Dapper;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,11 @@ using System.Threading.Tasks;
 
 namespace Treinamento.Entities
 {
-    [Table("ITEMS")]
+    [Table("Items")]
     public class Item
     {
-        [Column("ITM_ID")]
-        public int? Id { get; set; }
-        [Column("ITM_DESCRIPTION")]
+        public int? ItemId { get; set; }
         public String Description { get; set; }
-        [Column("ITM_COST")]
         public decimal Cost { get; set; }
     }
 }
