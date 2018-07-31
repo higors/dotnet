@@ -15,7 +15,7 @@ namespace Treinamento.Business
         private IOrder order = DataAccess.Factory.OrderFactory.NewOrder;
         public void DeleteOrder(uint Id)
         {
-            throw new NotImplementedException();
+            order.DeleteOrder(Id);
         }
 
         public IList<object> ListOrder()
@@ -25,12 +25,12 @@ namespace Treinamento.Business
 
         public void NewOrder(Entities.Order order)
         {
-            throw new NotImplementedException();
+            this.order.NewOrder(order);
         }
 
         public void UpdateOrder(Entities.Order order)
         {
-            throw new NotImplementedException();
+            this.order.UpdateOrder(order);
         }
     }
 }

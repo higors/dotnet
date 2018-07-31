@@ -12,6 +12,8 @@ namespace Treinamento.Presentation.FormApp
 {
     public partial class FormVenda : System.Windows.Forms.Form
     {
+        Interfaces.IOrder order = Business.Factory.OrderFactory.NewOrder;
+
         public FormVenda()
         {
             InitializeComponent();
@@ -19,6 +21,22 @@ namespace Treinamento.Presentation.FormApp
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            Close();
+        }
+
+        private void BtnConfirmar_Click(object sender, EventArgs e)
+        {
+            order.NewOrder(new Entities.Order()
+            {
+                ItemOrder = new Entities.Item()
+                {
+                    Description = txtPedidoItem.Text,
+                    Cost = Convert.ToDecimal(mtbValorItem.Text)
+                },
+                OrderQuantity = Convert.ToInt32(mtbQuantidade.Text),
+                Salesman = txtVendedor.Text,
+                OrderDate = dtpData.Value
+            });
             Close();
         }
     }

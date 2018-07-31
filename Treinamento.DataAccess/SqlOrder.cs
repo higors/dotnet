@@ -25,23 +25,12 @@ namespace Treinamento.DataAccess
         {
             var stringBuilder = new StringBuilder();
 
-            stringBuilder.AppendLine("DELETE ORDERS WHERE ORD_ID = @ordId");
+            stringBuilder.AppendLine("DELETE ORDERS WHERE ORDERID = @ordId");
 
             using (SqlConnection connection = new SqlConnection(GetConnectionString))
             {
-                using (SqlCommand command = new SqlCommand(stringBuilder.ToString(), connection))
-                {
-                    var parameter = new SqlParameter()
-                    {
-                        ParameterName = "@ordId",
-                        SqlDbType = System.Data.SqlDbType.Int,
-                        Value = Id
-                    };
-
-                    command.Parameters.Add(parameter);
-
-                    command.ExecuteNonQuery();
-                }
+                connection.Open();
+                connection.Execute(stringBuilder.ToString(), new { ord_id = Id }, commandType: CommandType.Text);
             }
         }
 
@@ -77,15 +66,59 @@ namespace Treinamento.DataAccess
 
         void IOrder.NewOrder(Order order)
         {
-            var stringBuilder = new StringBuilder();
+            var stringBuilderItem = new StringBuilder();
+            var stringBuilderOrder = new StringBuilder();
 
-            stringBuilder.AppendLine("INSERT INTO ORDERS (ORD_DESCRIPTION, ORD_NUMBER, ORD_DATE)");
-            stringBuilder.AppendLine("VALUES (@ord_description, @ord_number, )");
+            stringBuilderItem.AppendLine("INSERT INTO ITEMS(DESCRIPTION, COST)");
+            stringBuilderItem.AppendLine("OUTPUT INSERTED.ITEMID ");
+            stringBuilderItem.AppendLine("VALUES (@description, @cost)");
+            stringBuilderOrder.AppendLine("INSERT INTO ORDERS(IDITEM, ORDERQUANTITY, SALESMAN, ORDERDATE)");
+            stringBuilderOrder.AppendLine("VALUES (@idItem, @orderQuantity, @salesman, @orderDate )");
+
+            using (SqlConnection connection = new SqlConnection(GetConnectionString))
+            {
+                connection.Open();
+                var idItem = Convert.ToInt32(connection.ExecuteScalar(stringBuilderItem.ToString(),
+                    new
+                    {
+                        description = order.ItemOrder.Description,
+                        cost = order.ItemOrder.Cost
+                    }, commandType: CommandType.Text));
+                connection.Execute(stringBuilderOrder.ToString(),
+                    new
+                    {
+                        idItem = idItem,
+                        orderQuantity = order.OrderQuantity,
+                        salesman = order.Salesman,
+                        orderDate = order.OrderDate
+                    }, commandType: CommandType.Text);
+            }
         }
 
         void IOrder.UpdateOrder(Order order)
         {
-            throw new NotImplementedException();
+            var stringBuilder = new StringBuilder();
+
+            stringBuilder.AppendLine("UPDATE ORDERS");
+            stringBuilder.AppendLine("SET IDITEM = @idItem,");
+            stringBuilder.AppendLine("ORDERQUANTITY = @orderQuantity,");
+            stringBuilder.AppendLine("SALESMAN = @salesman,");
+            stringBuilder.AppendLine("ORDERDATE = @orderDate");
+            stringBuilder.AppendLine("WHERE ORDERID = @orderId");
+
+            using (SqlConnection connection = new SqlConnection(GetConnectionString))
+            {
+                connection.Open();
+                connection.Execute(stringBuilder.ToString(),
+                    new
+                    {
+                        idItem = order.IdItem,
+                        orderQuantity = order.OrderQuantity,
+                        salesman = order.Salesman,
+                        orderDate = order.OrderDate,
+                        orderId = order.OrderId
+                    }, commandType: CommandType.Text);
+            }
         }
     }
 }

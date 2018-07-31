@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gbxPedido = new System.Windows.Forms.GroupBox();
+            this.txtVendedor = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.txtPedidoItem = new System.Windows.Forms.TextBox();
@@ -49,6 +51,8 @@
             // 
             // gbxPedido
             // 
+            this.gbxPedido.Controls.Add(this.txtVendedor);
+            this.gbxPedido.Controls.Add(this.label1);
             this.gbxPedido.Controls.Add(this.btnCancelar);
             this.gbxPedido.Controls.Add(this.btnConfirmar);
             this.gbxPedido.Controls.Add(this.txtPedidoItem);
@@ -68,11 +72,27 @@
             this.gbxPedido.TabIndex = 0;
             this.gbxPedido.TabStop = false;
             // 
+            // txtVendedor
+            // 
+            this.txtVendedor.Location = new System.Drawing.Point(12, 205);
+            this.txtVendedor.Name = "txtVendedor";
+            this.txtVendedor.Size = new System.Drawing.Size(168, 20);
+            this.txtVendedor.TabIndex = 13;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 189);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Vendedor";
+            // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(44, 231);
+            this.btnCancelar.Location = new System.Drawing.Point(103, 231);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 30);
+            this.btnCancelar.Size = new System.Drawing.Size(80, 30);
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -80,12 +100,13 @@
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(44, 195);
+            this.btnConfirmar.Location = new System.Drawing.Point(6, 231);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(100, 30);
+            this.btnConfirmar.Size = new System.Drawing.Size(80, 30);
             this.btnConfirmar.TabIndex = 1;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
             // txtPedidoItem
             // 
@@ -97,16 +118,14 @@
             // mtbValorItem
             // 
             this.mtbValorItem.Location = new System.Drawing.Point(12, 164);
-            this.mtbValorItem.Mask = "$ 0,00";
             this.mtbValorItem.Name = "mtbValorItem";
             this.mtbValorItem.PromptChar = '0';
-            this.mtbValorItem.Size = new System.Drawing.Size(57, 20);
+            this.mtbValorItem.Size = new System.Drawing.Size(71, 20);
             this.mtbValorItem.TabIndex = 9;
             // 
             // mtbQuantidade
             // 
             this.mtbQuantidade.Location = new System.Drawing.Point(89, 164);
-            this.mtbQuantidade.Mask = "000";
             this.mtbQuantidade.Name = "mtbQuantidade";
             this.mtbQuantidade.PromptChar = '0';
             this.mtbQuantidade.Size = new System.Drawing.Size(91, 20);
@@ -114,11 +133,12 @@
             // 
             // mtbCodigoPedido
             // 
+            this.mtbCodigoPedido.Enabled = false;
             this.mtbCodigoPedido.Location = new System.Drawing.Point(12, 86);
             this.mtbCodigoPedido.Mask = "00000";
             this.mtbCodigoPedido.Name = "mtbCodigoPedido";
             this.mtbCodigoPedido.PromptChar = '0';
-            this.mtbCodigoPedido.Size = new System.Drawing.Size(57, 20);
+            this.mtbCodigoPedido.Size = new System.Drawing.Size(71, 20);
             this.mtbCodigoPedido.TabIndex = 7;
             // 
             // dtpData
@@ -228,5 +248,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Label lblPedido;
+        private System.Windows.Forms.TextBox txtVendedor;
+        private System.Windows.Forms.Label label1;
     }
 }

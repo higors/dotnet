@@ -22,17 +22,25 @@ namespace Treinamento.Presentation.FormApp
         {
             InitializeComponent();
 
-            dgvPedidos.DataSource = order.ListOrder();
+            FillGrid();
         }
-
+        
         private void Button1_Click(object sender, EventArgs e)
         {
             venda.Show();
+            FillGrid();
         }
 
         private void DgvPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void FillGrid()
+        {
+            dgvPedidos.DataSource = order.ListOrder();
+            dgvPedidos.Update();
+            dgvPedidos.Refresh();
         }
     }
 }

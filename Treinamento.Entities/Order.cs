@@ -13,11 +13,11 @@ namespace Treinamento.Entities
     public class Order
     {
         public int? OrderId { get; set; }
+        public int OrderQuantity { get; set; }
         public String Salesman { get; set; }
-        public String OrderQuantity { get; set; }
         public DateTime OrderDate { get; set; }
 
         public int IdItem { get; set; }
-        public virtual Item ItemOrder { get; set; }
+        public Item ItemOrder { get; set; }
     }
 }
