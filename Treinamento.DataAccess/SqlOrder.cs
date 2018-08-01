@@ -17,7 +17,7 @@ namespace Treinamento.DataAccess
         {
             get
             {
-                return System.Configuration.ConfigurationManager.ConnectionStrings["MY_DB"].ConnectionString;
+                return System.Configuration.ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
             }
         }
 

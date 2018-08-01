@@ -77,7 +77,7 @@
             this.txtVendedor.Location = new System.Drawing.Point(12, 205);
             this.txtVendedor.Name = "txtVendedor";
             this.txtVendedor.Size = new System.Drawing.Size(168, 20);
-            this.txtVendedor.TabIndex = 13;
+            this.txtVendedor.TabIndex = 5;
             // 
             // label1
             // 
@@ -93,7 +93,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(103, 231);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(80, 30);
-            this.btnCancelar.TabIndex = 11;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.Button2_Click);
@@ -103,7 +103,7 @@
             this.btnConfirmar.Location = new System.Drawing.Point(6, 231);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(80, 30);
-            this.btnConfirmar.TabIndex = 1;
+            this.btnConfirmar.TabIndex = 6;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
@@ -113,7 +113,7 @@
             this.txtPedidoItem.Location = new System.Drawing.Point(12, 125);
             this.txtPedidoItem.Name = "txtPedidoItem";
             this.txtPedidoItem.Size = new System.Drawing.Size(168, 20);
-            this.txtPedidoItem.TabIndex = 10;
+            this.txtPedidoItem.TabIndex = 2;
             // 
             // mtbValorItem
             // 
@@ -121,7 +121,7 @@
             this.mtbValorItem.Name = "mtbValorItem";
             this.mtbValorItem.PromptChar = '0';
             this.mtbValorItem.Size = new System.Drawing.Size(71, 20);
-            this.mtbValorItem.TabIndex = 9;
+            this.mtbValorItem.TabIndex = 3;
             // 
             // mtbQuantidade
             // 
@@ -129,7 +129,7 @@
             this.mtbQuantidade.Name = "mtbQuantidade";
             this.mtbQuantidade.PromptChar = '0';
             this.mtbQuantidade.Size = new System.Drawing.Size(91, 20);
-            this.mtbQuantidade.TabIndex = 8;
+            this.mtbQuantidade.TabIndex = 4;
             // 
             // mtbCodigoPedido
             // 
@@ -139,7 +139,7 @@
             this.mtbCodigoPedido.Name = "mtbCodigoPedido";
             this.mtbCodigoPedido.PromptChar = '0';
             this.mtbCodigoPedido.Size = new System.Drawing.Size(71, 20);
-            this.mtbCodigoPedido.TabIndex = 7;
+            this.mtbCodigoPedido.TabIndex = 0;
             // 
             // dtpData
             // 
@@ -147,7 +147,7 @@
             this.dtpData.Location = new System.Drawing.Point(89, 86);
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(91, 20);
-            this.dtpData.TabIndex = 6;
+            this.dtpData.TabIndex = 1;
             // 
             // lblPedidoItem
             // 

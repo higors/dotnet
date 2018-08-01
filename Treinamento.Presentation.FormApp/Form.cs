@@ -16,8 +16,6 @@ namespace Treinamento.Presentation.FormApp
     {
         private IOrder order = Business.Factory.OrderFactory.NewOrder;
 
-        private FormVenda venda = new FormVenda();
-
         public Form()
         {
             InitializeComponent();
@@ -27,8 +25,8 @@ namespace Treinamento.Presentation.FormApp
         
         private void Button1_Click(object sender, EventArgs e)
         {
+            FormVenda venda = new FormVenda();
             venda.Show();
-            FillGrid();
         }
 
         private void DgvPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -38,9 +36,13 @@ namespace Treinamento.Presentation.FormApp
 
         private void FillGrid()
         {
+            dgvPedidos.DataSource = null;
             dgvPedidos.DataSource = order.ListOrder();
-            dgvPedidos.Update();
-            dgvPedidos.Refresh();
+        }
+
+        private void BtnAtualizarGrid_Click(object sender, EventArgs e)
+        {
+            FillGrid();
         }
     }
 }

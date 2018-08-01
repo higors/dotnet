@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPedidos = new System.Windows.Forms.DataGridView();
             this.gbxPedido = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnAtualizarGrid = new System.Windows.Forms.Button();
             this.btnExcluirPedido = new System.Windows.Forms.Button();
             this.btnNovaVenda = new System.Windows.Forms.Button();
             this.gbxPedidoItem = new System.Windows.Forms.GroupBox();
@@ -63,14 +64,14 @@
             this.dgvPedidos.AllowUserToResizeRows = false;
             this.dgvPedidos.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvPedidos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPedidos.EnableHeadersVisualStyles = false;
             this.dgvPedidos.GridColor = System.Drawing.SystemColors.ControlLight;
             this.dgvPedidos.Location = new System.Drawing.Point(12, 12);
@@ -95,6 +96,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnAtualizarGrid);
             this.groupBox4.Controls.Add(this.btnExcluirPedido);
             this.groupBox4.Controls.Add(this.btnNovaVenda);
             this.groupBox4.Location = new System.Drawing.Point(6, 242);
@@ -103,20 +105,30 @@
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             // 
+            // btnAtualizarGrid
+            // 
+            this.btnAtualizarGrid.Location = new System.Drawing.Point(185, 16);
+            this.btnAtualizarGrid.Name = "btnAtualizarGrid";
+            this.btnAtualizarGrid.Size = new System.Drawing.Size(75, 23);
+            this.btnAtualizarGrid.TabIndex = 2;
+            this.btnAtualizarGrid.Text = "Atualizar";
+            this.btnAtualizarGrid.UseVisualStyleBackColor = true;
+            this.btnAtualizarGrid.Click += new System.EventHandler(this.BtnAtualizarGrid_Click);
+            // 
             // btnExcluirPedido
             // 
-            this.btnExcluirPedido.Location = new System.Drawing.Point(146, 16);
+            this.btnExcluirPedido.Location = new System.Drawing.Point(96, 16);
             this.btnExcluirPedido.Name = "btnExcluirPedido";
-            this.btnExcluirPedido.Size = new System.Drawing.Size(100, 23);
+            this.btnExcluirPedido.Size = new System.Drawing.Size(75, 23);
             this.btnExcluirPedido.TabIndex = 1;
-            this.btnExcluirPedido.Text = "Excluir Pedido";
+            this.btnExcluirPedido.Text = "Excluir";
             this.btnExcluirPedido.UseVisualStyleBackColor = true;
             // 
             // btnNovaVenda
             // 
-            this.btnNovaVenda.Location = new System.Drawing.Point(22, 16);
+            this.btnNovaVenda.Location = new System.Drawing.Point(7, 16);
             this.btnNovaVenda.Name = "btnNovaVenda";
-            this.btnNovaVenda.Size = new System.Drawing.Size(100, 23);
+            this.btnNovaVenda.Size = new System.Drawing.Size(75, 23);
             this.btnNovaVenda.TabIndex = 0;
             this.btnNovaVenda.Text = "Nova Venda";
             this.btnNovaVenda.UseVisualStyleBackColor = true;
@@ -147,7 +159,7 @@
             this.mtbQuantidade.Name = "mtbQuantidade";
             this.mtbQuantidade.PromptChar = '0';
             this.mtbQuantidade.Size = new System.Drawing.Size(60, 20);
-            this.mtbQuantidade.TabIndex = 10;
+            this.mtbQuantidade.TabIndex = 4;
             // 
             // lblValorItem
             // 
@@ -166,7 +178,7 @@
             this.mtbValorItem.Name = "mtbValorItem";
             this.mtbValorItem.PromptChar = '0';
             this.mtbValorItem.Size = new System.Drawing.Size(70, 20);
-            this.mtbValorItem.TabIndex = 8;
+            this.mtbValorItem.TabIndex = 3;
             // 
             // txtPedidoItem
             // 
@@ -174,7 +186,7 @@
             this.txtPedidoItem.Location = new System.Drawing.Point(22, 71);
             this.txtPedidoItem.Name = "txtPedidoItem";
             this.txtPedidoItem.Size = new System.Drawing.Size(150, 20);
-            this.txtPedidoItem.TabIndex = 6;
+            this.txtPedidoItem.TabIndex = 2;
             // 
             // dtpData
             // 
@@ -185,7 +197,7 @@
             this.dtpData.Location = new System.Drawing.Point(88, 32);
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(100, 20);
-            this.dtpData.TabIndex = 5;
+            this.dtpData.TabIndex = 1;
             // 
             // mtbCodigoPedido
             // 
@@ -195,7 +207,7 @@
             this.mtbCodigoPedido.Name = "mtbCodigoPedido";
             this.mtbCodigoPedido.PromptChar = '0';
             this.mtbCodigoPedido.Size = new System.Drawing.Size(60, 20);
-            this.mtbCodigoPedido.TabIndex = 4;
+            this.mtbCodigoPedido.TabIndex = 0;
             this.mtbCodigoPedido.ValidatingType = typeof(int);
             // 
             // lblQuantidade
@@ -307,6 +319,7 @@
         private System.Windows.Forms.Label lblValorItem;
         private System.Windows.Forms.MaskedTextBox mtbValorItem;
         private System.Windows.Forms.TextBox txtPedidoItem;
+        private System.Windows.Forms.Button btnAtualizarGrid;
     }
 }
 
