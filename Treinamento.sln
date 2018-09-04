@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Treinamento.Interfaces", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Treinamento.DataAccess", "Treinamento.DataAccess\Treinamento.DataAccess.csproj", "{CA7EFB65-6B29-4BB7-A595-9110627016B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Treinamento.Presentation.WebApp", "Treinamento.Presentation.WebApp\Treinamento.Presentation.WebApp.csproj", "{082BA22A-A674-4276-97F0-B637D414CBE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,12 @@ Global
 		{CA7EFB65-6B29-4BB7-A595-9110627016B1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CA7EFB65-6B29-4BB7-A595-9110627016B1}.teste|Any CPU.ActiveCfg = Release|Any CPU
 		{CA7EFB65-6B29-4BB7-A595-9110627016B1}.teste|Any CPU.Build.0 = Release|Any CPU
+		{082BA22A-A674-4276-97F0-B637D414CBE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{082BA22A-A674-4276-97F0-B637D414CBE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{082BA22A-A674-4276-97F0-B637D414CBE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{082BA22A-A674-4276-97F0-B637D414CBE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{082BA22A-A674-4276-97F0-B637D414CBE6}.teste|Any CPU.ActiveCfg = Release|Any CPU
+		{082BA22A-A674-4276-97F0-B637D414CBE6}.teste|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using Dapper;
 using System.Collections.Generic;
 using System.Data;
@@ -17,12 +18,13 @@ namespace Treinamento.DataAccess
         {
             get
             {
-                return System.Configuration.ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
+                return ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
             }
         }
 
         void IOrder.DeleteOrder(uint Id)
         {
+            
             var stringBuilder = new StringBuilder();
 
             stringBuilder.AppendLine("DELETE ORDERS WHERE ORDERID = @ordId");
@@ -46,6 +48,7 @@ namespace Treinamento.DataAccess
             using (SqlConnection connection = new SqlConnection(GetConnectionString))
             {
                 connection.Open();
+
                 listObject = connection.Query<Order, Item, object>(stringBuilder.ToString(), (ord, itm) =>
                  {
                      ord.ItemOrder = itm;
@@ -78,20 +81,10 @@ namespace Treinamento.DataAccess
             using (SqlConnection connection = new SqlConnection(GetConnectionString))
             {
                 connection.Open();
-                var idItem = Convert.ToInt32(connection.ExecuteScalar(stringBuilderItem.ToString(),
-                    new
-                    {
-                        description = order.ItemOrder.Description,
-                        cost = order.ItemOrder.Cost
-                    }, commandType: CommandType.Text));
+                order.IdItem = Convert.ToInt32(connection.ExecuteScalar(stringBuilderItem.ToString(),
+                    order.ItemOrder, commandType: CommandType.Text));
                 connection.Execute(stringBuilderOrder.ToString(),
-                    new
-                    {
-                        idItem = idItem,
-                        orderQuantity = order.OrderQuantity,
-                        salesman = order.Salesman,
-                        orderDate = order.OrderDate
-                    }, commandType: CommandType.Text);
+                    order, commandType: CommandType.Text);
             }
         }
 
